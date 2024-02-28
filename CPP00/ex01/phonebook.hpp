@@ -9,6 +9,7 @@ class PhoneBook
 		int nnc;
 
 	public:
+		PhoneBook();
 		void add_contact();
 		void print_nnc();
 		void search();

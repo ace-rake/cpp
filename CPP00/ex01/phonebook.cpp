@@ -11,15 +11,21 @@ void PhoneBook::print_nnc()
 	std::cout << "next new contact " << this->nnc << std::endl;
 }
 
+PhoneBook::PhoneBook()
+{
+	this->nnc = 0;
+}
 
 void PhoneBook::search(){
 	std::cout << "     index| firstname|  lastname|      nick" << std::endl;
 	for (int i = 0; i < 8; ++i)
 	{
-		std::cout << "         " << i + 1<< "|";
+		std::cout << "         " << i + 1 << "|";
 		this->contacts[i].print_info_small();
 	}
+
 	std::string input;
+	std::cout << "please choose a number between 1 and 8" << std::endl;
 	std::getline(std::cin, input);
 	std::stringstream stream( input );
 	int number;
@@ -28,7 +34,3 @@ void PhoneBook::search(){
 	else
 		std::cout << "fuck you\n";
 }
-
-
-
-

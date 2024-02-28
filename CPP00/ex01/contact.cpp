@@ -4,26 +4,64 @@
 #include <sstream>
 
 Contact::Contact(){
+	this->number = 0;
+	this->first_name = "N/A";
+	this->last_name = "N/A";
+	this->nick_name = "N/A";
+	this->secret = "N/A";
 }
+
+std::string	Contact::get_field(std::string prompt , int force_number)
+{
+	std::string input;
+	std::cout << prompt << std::endl;
+	while (std::getline(std::cin, input))
+	{
+		if (!input.empty())
+			return (input);
+		std::cout << prompt << std::endl;
+	}
+	(void)force_number;
+	return (input);
+}
+
+//std::string	Contact::get_field(std::string prompt , int force_number)
+//{
+	//std::string input;
+	//start_loop:
+	//do
+	//{
+		//std::cout << prompt;
+		//std::getline(std::cin, input);
+		//if (force_number)
+		//{
+			//for (char c : input) {
+				//if (!std::isdigit(c)) {
+					//goto start_loop;
+				//}
+			//}
+		//}
+	//}
+	//while(input.empty());
+	//return (input);
+//}
 
 void	Contact::get_info(){
-	std::cout << "Please give a first name" << std::endl;
-	std::getline(std::cin, this->first_name);
-	std::cout << "Please give a last name" << std::endl;
-	std::getline(std::cin, this->last_name);
-	std::cout << "Please give a nick name" << std::endl;
-	std::getline(std::cin, this->nick_name);
-	std::cout << "Please give a number" << std::endl;
+	this->first_name = get_field("Please give a first name\n", 0);
+	
+	this->last_name = get_field("Please give a last name\n", 0);
 
-	std::string input;
-	std::getline(std::cin, input);
-	std::stringstream stream(input);
-	stream >> this->number;
-	std::cout << "Please give a secret" << std::endl;
-	std::getline(std::cin, this->secret);
+	this->nick_name = get_field("Please give a nick name\n", 0);
+
+	std::stringstream stream ( get_field("Please give a number\n", 1));
+	int number;
+	if (stream >> number)
+		this->number = number;
+
+	this->secret = get_field("Please give a secret\n", 0);
 }
 
-std::string trunc(std::string str)
+std::string Contact::trunc(std::string str)
 {
 	if (str.length() > 10)
 		return (str.substr(0, 9) + ".");
@@ -32,7 +70,7 @@ std::string trunc(std::string str)
 	else
 	{
 		std::string padding;
-		for (int i = 0; i < 10 - str.length(); i++)
+		for (unsigned long i = 0; i < 10 - str.length(); i++)
 			padding += " ";
 		return (padding + str);
 	}
@@ -44,9 +82,9 @@ void Contact::print_info_small(){
 	std::cout << trunc(this->nick_name) << std::endl;
 }
 void Contact::print_info(){
-	std::cout << this->first_name << std::endl;
-	std::cout << this->last_name << std::endl;
-	std::cout << this->nick_name << std::endl;
-	std::cout << this->number << std::endl;
-	std::cout << this->secret << std::endl;
+	std::cout << "First Name: [" << this->first_name << "]" << std::endl;
+	std::cout << "Last Name: ["  << this->last_name << "]"  << std::endl;
+	std::cout << "Nick Name: ["  << this->nick_name << "]"  << std::endl;
+	std::cout << "Number: ["  << this->number << "]"  << std::endl;
+	std::cout << "Secret: ["  << this->secret << "]"  << std::endl;
 }
