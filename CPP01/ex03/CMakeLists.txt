@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.10)
 project(MyProject)
 
 # Add source fileFILE(GLOB_RECURSE MyCSources ./*.c)
-FILE(GLOB_RECURSE MyCSources src/*.cpp)
+FILE(GLOB_RECURSE MySources src/*.cpp)
 
 
 
@@ -22,7 +22,7 @@ add_compile_options(-Wall -Wextra -Werror -g -O0)
 
 
 # Add an executable target
-add_executable(My_app ${MyCSources})
+add_executable(My_app ${MySources})
 
 
 

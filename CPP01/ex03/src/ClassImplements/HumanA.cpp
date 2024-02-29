@@ -2,26 +2,31 @@
 
 Weapon	HumanA::getWeapon()
 {
-	return this->weapon;
+	return this->_weapon;
 }
 
 void	HumanA::setWeapon(Weapon weapon)
 {
-	this->weapon = weapon;
+	this->_weapon = weapon;
 }
 std::string	HumanA::getName()
 {
-	return this->name;
+	return this->_name;
 }
 
 void	HumanA::setName(std::string name)
 {
-	this->name = name;
+	this->_name = name;
 }
 
-HumanA::HumanA(Weapon weapon)
+void	HumanA::attack()
 {
-	this->weapon = weapon;
+	std::cout << this->_name << " attacks with " << this->_weapon.getType() << std::endl;
+}
+
+HumanA::HumanA(std::string name, Weapon& weapon) : _weapon(weapon), _name(name) 
+{
+	std::cout << "Human " << name << " has been birthed and has been gifted " << weapon.getType() << std::endl;
 }
 
 HumanA::~HumanA()

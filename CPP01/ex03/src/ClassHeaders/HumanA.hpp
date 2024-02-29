@@ -12,13 +12,15 @@ class HumanA
 		std::string	getName();
 		void		setName(std::string name);
 
-		HumanA(Weapon weapon);
+		HumanA(std::string name, Weapon& weapon);
 		~HumanA();
+
+		void	attack();
 
 
 	private:
-		Weapon weapon;
-		std::string name;
+		Weapon &_weapon;
+		std::string _name;
 
 };
 
