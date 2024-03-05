@@ -1,4 +1,4 @@
-#include "../ClassHeaders/HumanB.hpp"
+#include "../main.h"
 
 Weapon	HumanB::getWeapon()
 {
@@ -8,7 +8,7 @@ Weapon	HumanB::getWeapon()
 void	HumanB::setWeapon(Weapon *weapon)
 {
 	this->_weapon = weapon;
-	std::cout << this->_name << " equips a " << weapon->getType() << std::endl;
+	std::cout << this->_name << ":\tequips a " << weapon->getType() << std::endl;
 }
 std::string	HumanB::getName()
 {
@@ -17,21 +17,24 @@ std::string	HumanB::getName()
 
 void	HumanB::setName(std::string name)
 {
+	std::cout << "Human:\thas been renamed to :" << name << std::endl;
 	this->_name = name;
 }
 
 void	HumanB::attack()
 {
-	if (!this->_weapon)
-		std::cout << this->_name << " attacks with " << this->_weapon->getType() << std::endl;
+	if (this->_weapon)
+		std::cout << this->_name << ":\tattacks with " << this->_weapon->getType() << std::endl;
 	else
-		std::cout << this->_name << " attacks with " << "fists cuz they got no weapon" << std::endl;
+		std::cout << this->_name << ":\tattacks with " << "fists cuz they got no weapon" << std::endl;
 
 }
 
-HumanB::HumanB(std::string name) : _name(name)
+HumanB::HumanB(std::string name)
 {
-	std::cout << "Human " << name << " has been birthed"<< std::endl;
+	this->_weapon = NULL;
+	std::cout << "Human:\thas been birthed"<< std::endl;
+	this->setName(name);
 }
 
 HumanB::~HumanB()

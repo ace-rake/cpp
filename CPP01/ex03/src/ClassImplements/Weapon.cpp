@@ -1,4 +1,4 @@
-#include "../ClassHeaders/Weapon.hpp"
+#include "../main.h"
 
 const std::string &Weapon::getType()
 {

@@ -22,7 +22,7 @@ add_compile_options(-Wall -Wextra -Werror -g -O0)
 
 
 # Add an executable target
-add_executable(My_app ${MySources})
+add_executable(Violence ${MySources})
 
 
 

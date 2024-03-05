@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include "../../colors.h"
 
 int	main(void)
 {
@@ -7,11 +8,19 @@ int	main(void)
 	std::string *ptr = &str;
 	std::string &ref = str;
 
-	std::cout << "Str address " << &str << std::endl;
-	std::cout << "Ptr content " << &ptr << std::endl;
-	std::cout << "Ref content " << &ref << std::endl << std::endl;
+	print_test("String address");
+	std::cout << &str << std::endl;
 
-	std::cout << "Str content " << str << std::endl;
-	std::cout << "Ptr dereference " << ptr << std::endl;
-	std::cout << "Ref content " << ref << std::endl << std::endl;
+	print_test("Ptr address");
+	std::cout<< &ptr << std::endl;
+
+	print_test("Ref address");
+	std::cout<< &ref << std::endl << std::endl;
+
+	print_test("Str content");
+	std::cout << str << std::endl;
+	print_test("Ptr content");
+	std::cout << ptr << std::endl;
+	print_test("Ref content");
+	std::cout << ref << std::endl << std::endl;
 }

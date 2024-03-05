@@ -12,6 +12,8 @@ int	main(){
 	{
 		std::cout << "Options:\n\tADD\n\tSEARCH\n\tEXIT" << std::endl;
 		std::getline(std::cin, input);
+		if (std::cin.eof())
+			return (1);
 		if (input.compare("ADD") == 0)
 		{
 			book.print_nnc();

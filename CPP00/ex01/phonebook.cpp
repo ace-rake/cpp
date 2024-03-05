@@ -1,5 +1,6 @@
 #include "phonebook.hpp"
 #include <sstream>
+#include <stdlib.h>
 
 void PhoneBook::add_contact(){
 	this->contacts[(this->nnc)].get_info();
@@ -25,12 +26,19 @@ void PhoneBook::search(){
 	}
 
 	std::string input;
-	std::cout << "please choose a number between 1 and 8" << std::endl;
-	std::getline(std::cin, input);
-	std::stringstream stream( input );
-	int number;
-	if (stream >> number && (1 <= number && number <= 8))
-		this->contacts[number - 1].print_info();
-	else
-		std::cout << "fuck you\n";
+
+	while (1)
+	{
+		std::cout << "please choose a number between 1 and 8" << std::endl;
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+			return (exit(69), void());
+		std::stringstream stream( input );
+		int number;
+		if (stream >> number && (1 <= number && number <= 8))
+		{
+			this->contacts[number - 1].print_info();
+			return ;	
+		}
+	}
 }

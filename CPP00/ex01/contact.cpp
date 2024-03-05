@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <stdlib.h>
 
 Contact::Contact(){
 	this->number = 0;
@@ -21,30 +22,11 @@ std::string	Contact::get_field(std::string prompt , int force_number)
 			return (input);
 		std::cout << prompt << std::endl;
 	}
+	if (!std::cin)
+		exit(0);
 	(void)force_number;
 	return (input);
 }
-
-//std::string	Contact::get_field(std::string prompt , int force_number)
-//{
-	//std::string input;
-	//start_loop:
-	//do
-	//{
-		//std::cout << prompt;
-		//std::getline(std::cin, input);
-		//if (force_number)
-		//{
-			//for (char c : input) {
-				//if (!std::isdigit(c)) {
-					//goto start_loop;
-				//}
-			//}
-		//}
-	//}
-	//while(input.empty());
-	//return (input);
-//}
 
 void	Contact::get_info(){
 	this->first_name = get_field("Please give a first name\n", 0);
@@ -76,12 +58,14 @@ std::string Contact::trunc(std::string str)
 	}
 }
 
-void Contact::print_info_small(){
+void Contact::print_info_small()
+{
 	std::cout << trunc(this->first_name) << "|";
 	std::cout << trunc(this->last_name) << "|";
 	std::cout << trunc(this->nick_name) << std::endl;
 }
-void Contact::print_info(){
+void Contact::print_info()
+{
 	std::cout << "First Name: [" << this->first_name << "]" << std::endl;
 	std::cout << "Last Name: ["  << this->last_name << "]"  << std::endl;
 	std::cout << "Nick Name: ["  << this->nick_name << "]"  << std::endl;

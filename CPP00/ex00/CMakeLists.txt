@@ -17,7 +17,7 @@ add_link_options(--std=c++98 -Wall -Werror -Wextra -g)
 
 
 # Add compiler flags globally
-add_compile_options(-Wall -Wextra -Werror -g -O0)
+add_compile_options(--std=c++98 -Wall -Wextra -Werror -g -O0)
 
 
 
