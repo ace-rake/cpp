@@ -37,21 +37,40 @@ void	smaller_eq_test(Fixed& a, Fixed& b)
 	else
 		std::cout << a <<" is not smaller than or eq to " << b << std::endl;
 }
+void	min_test(Fixed& a, Fixed& b)
+{
+	std::cout << "From given Fixed " << a << " : " << b << ". " << Fixed::min(a,b) << " is the min" << std::endl;
+}
+
+void	max_test(Fixed& a, Fixed& b)
+{
+	std::cout << "From given Fixed " << a << " : " << b << ". " << Fixed::max(a,b) << " is the min" << std::endl;
+}
+
+void	max_test(const Fixed& a, const Fixed& b)
+{
+	std::cout << "From given Fixed " << a << " : " << b << ". " << Fixed::max(a,b) << " is the min" << std::endl;
+}
+
+void	min_test(const Fixed& a, const Fixed& b)
+{
+	std::cout << "From given Fixed " << a << " : " << b << ". " << Fixed::min(a,b) << " is the min" << std::endl;
+}
 
 int    main(void)
 {
 	print_test("Starting tests\n");
+	print_test("Creating fixed number and setting raw bits");
 	{
-		print_test("Creating fixed number and setting raw bits");
 		Fixed	number;
 		std::cout << number.getRawBits() << std::endl;
 		number.setRawBits(69);
 		std::cout << number.getRawBits() << std::endl;
-		print_test("End of test");
 	}
+	print_test("End of test\n");
 
+	print_test("Copy constructor");
 	{
-		print_test("Copy constructor");
 		Fixed	number;
 		number.setRawBits(69);
 		Fixed	numba(	number	);
@@ -59,11 +78,11 @@ int    main(void)
 		numba.setRawBits(420);
 		std::cout << numba.getRawBits() << std::endl;
 		std::cout << number.getRawBits() << std::endl;
-		print_test("End of test");
 	}
+	print_test("End of test\n");
 
+	print_test("Copy assignment");
 	{
-		print_test("Copy assignment");
 		Fixed	number;
 		number.setRawBits(69);
 		Fixed fuck;
@@ -72,15 +91,16 @@ int    main(void)
 		fuck.setRawBits(420);
 		std::cout << fuck.getRawBits() << std::endl;
 		std::cout << number.getRawBits() << std::endl;
-		print_test("End of test");
 	}
+	print_test("End of test\n");
 
+	print_test("<< overload");
 	{
-		print_test("<< overload");
 		Fixed number;
 		std::cout << number << std::endl;
-		print_test("End of test");
 	}
+	print_test("End of test\n");
+
 	{
 		print_test("Creating fixed number with float");
 		Fixed	number(420.69f);
@@ -100,10 +120,11 @@ int    main(void)
 		std::cout << number << std::endl;
 		std::cout << number.toFloat() << std::endl;
 		std::cout << number.toInt() << std::endl;
-		print_test("End of test");
 	}
+	print_test("End of test\n");
+
+	print_test("Starting to test comparison overloading");
 	{
-		print_test("Starting to test comparison overloading");
 
 		print_test("Creating some value to work with");
 		Fixed a(6.0f);
@@ -136,10 +157,11 @@ int    main(void)
 		bigger_eq_test(c, d);
 		bigger_eq_test(d, c);
 
-		print_test("End of test");
 	}
-	{
-		print_test("Starting arithmetic overloading");
+	print_test("End of test\n");
+
+	print_test("Starting arithmetic overloading");
+	{ 
 
 		print_test("Creating some value to work with");
 		Fixed a(6.5f);
@@ -161,7 +183,6 @@ int    main(void)
 		print_test("Divide by zero");
 		Fixed zero;
 		std::cout << a << " / " << zero << " = " << f / zero << std::endl;
-		zero.setRawBits(f / zero);
 		std::cout << zero << std::endl;
 
 		print_test("Add");
@@ -173,11 +194,54 @@ int    main(void)
 		std::cout << a << " - " << b << " = " << a - b << std::endl;
 		std::cout << b << " - " << d << " = " << b - d << std::endl;
 		std::cout << f << " - " << d << " = " << f - d << std::endl;
-
-		print_test("End of arithmetic overloading");
 	}
+	print_test("End of arithmetic overloading\n");
 
+	print_test("Start of in/decrement operators");
 	{
+		Fixed a(5.0f);
+		print_test("Pre increment");
+		std::cout << a << " : " << ++a  << " : " << a << std::endl;
+		std::cout << a << " : " << ++a  << " : " << a << std::endl;
+
+		print_test("Post increment");
+		std::cout << a << " : " << a++ << " : " << a << std::endl;
+		std::cout << a << " : " << a++ << " : " << a << std::endl;
+
+		print_test("Pre decrement");
+		std::cout << a << " : " << --a << " : " << a << std::endl;
+		std::cout << a << " : " << --a << " : " << a << std::endl;
+
+		print_test("Post decrement");
+		std::cout << a << " : " << a-- << " : " << a << std::endl;
+		std::cout << a << " : " << a-- << " : " << a << std::endl;
 
 	}
+	print_test("End of in/decrement operators\n");
+
+	print_test("Start of min/max test");
+	{
+		Fixed a(5.0f);
+		Fixed b(6.0f);
+		Fixed c(5);
+		Fixed d(6);
+		min_test(a,b);
+		min_test(c,d);
+		min_test(a,a);
+		max_test(a,b);
+		max_test(c,d);
+		max_test(a,a);
+
+		const Fixed e(5.0f);
+		const Fixed f(6.0f);
+		const Fixed g(5);
+		const Fixed h(6);
+		min_test(e,f);
+		min_test(g,h);
+		min_test(f,f);
+		max_test(e,f);
+		max_test(g,h);
+		max_test(f,a);
+	}
+	print_test("End of min/max test");
 }

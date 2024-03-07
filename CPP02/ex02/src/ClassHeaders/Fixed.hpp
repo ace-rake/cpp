@@ -17,17 +17,46 @@ class    Fixed
 		Fixed&	operator =	(	const Fixed& other	);
 
 
+		// Comparison operator overload
+		// Eq assignment operator overload
+		bool	operator == (	Fixed& that	)const;
+		// Bigger than assignment operator overload
+		bool	operator > (	Fixed& that	)const;
+		// Smaller than assignment operator overload
+		bool	operator < (	Fixed& that	)const;
+		// Smaller or eq assignment operator overload
+		bool	operator <= (	Fixed& that	)const;
+		// Bigger or eq assignment operator overload
+		bool	operator >= (	Fixed& that	)const;
+
+		// Arithmetic operators
+		// *
+		Fixed	operator * (	Fixed& that	)const;
+		// /
+		Fixed	operator / (	Fixed& that	)const;
+		// -
+		Fixed	operator - (	Fixed& that	)const;
+		// +
+		Fixed	operator + (	Fixed& that	)const;
+
+		// Increment operator overload
+		Fixed& operator ++ ();
+		Fixed operator ++ (int);
+		Fixed& operator -- ();
+		Fixed operator -- (int);
+
 
 		// Destructor
 		~Fixed	(	void	);
 
-		int		getRawBits	(	void	);
+		int		getRawBits	(	void	)const;
 		void	setRawBits	(	const int raw	);
-		float	toFloat		(	void	);
-		int		toInt		(	void	);
-
-	protected:
-		;
+		float	toFloat		(	void	)const;
+		int		toInt		(	void	)const;
+		static Fixed&	min	(	Fixed& a, Fixed& b	);
+		static const Fixed&	min	(	const Fixed& a, const Fixed& b	);
+		static Fixed&	max	(	Fixed& a, Fixed& b	);
+		static const Fixed&	max	(	const Fixed& a, const Fixed& b	);
 
 	private:
 		/*_*/;
@@ -35,26 +64,6 @@ class    Fixed
 		static const int _fBits = 8;
 };
 
-std::ostream&	operator <<	(	std::ostream& os, Fixed &other);
-// Eq assignment operator overload
-bool	operator == (	Fixed &_this, Fixed& _that	);
-// Bigger than assignment operator overload
-bool	operator > (	Fixed &_this, Fixed& _that	);
-// Smaller than assignment operator overload
-bool	operator < (Fixed&_this, Fixed& that);
-// Smaller or eq assignment operator overload
-bool	operator <= (Fixed&_this, Fixed& that);
-// Bigger or eq assignment operator overload
-bool	operator >= (Fixed&_this, Fixed& that);
-
-// Arithmetic operators
-// *
-float	operator * (Fixed&_this, Fixed& that);
-// /
-float	operator / (Fixed&_this, Fixed& that);
-// -
-float	operator - (Fixed&_this, Fixed& that);
-// +
-float	operator + (Fixed&_this, Fixed& that);
+std::ostream&	operator <<	(	std::ostream& os, const Fixed &other);
 
 #endif
