@@ -3,7 +3,6 @@
 // Constructor
 ClapTrap::ClapTrap(std::string name)
 {
-	std::cout << "ClapTrap:\tcreating object\n";
 	std::cout << "ClapTrap:\t" << name << ":\tcreating object\n";
 	this->setName(name);
 	this->setHp(10);
@@ -14,14 +13,14 @@ ClapTrap::ClapTrap(std::string name)
 // Copy constructor
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
-	std::cout << "ClapTrap:\t" << this->_name << ":\tcopying object\n";
+	std::cout << "ClapTrap:\t" << other._name << ":\tcopying object\n";
 	*this = other;
 }
 
 // Copy assignment operator overload
 ClapTrap& ClapTrap::operator = (const ClapTrap& other)
 {
-	std::cout << "ClapTrap:\t" << this->_name << ":\tcopying object (assignment)\n";
+	std::cout << "ClapTrap:\t" << other._name << ":\tcopying object (assignment)\n";
 	if (this != &other)
 	{
 		this->_name = other._name;

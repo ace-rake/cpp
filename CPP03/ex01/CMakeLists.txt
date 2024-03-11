@@ -15,7 +15,7 @@ add_link_options(--std=c++98 -Wall -Werror -Wextra -g)
 add_compile_options(-Wall -Wextra -Werror -g -O0)
 
 # Add an executable target
-add_executable(ClapTrap ${MySources})
+add_executable(ScavTrap ${MySources})
 
 # Add extra targets
 add_custom_target(re

@@ -1,8 +1,7 @@
 #include "Zombie.hpp"
 Zombie* newZombie(std::string name)                 
 {                                                           
-    Zombie *zombie = new Zombie;                            
-	zombie->set_name(name);
+    Zombie *zombie = new Zombie(name);
 	std::cout << name << ":\tis ready to roll" << std::endl;
     return zombie;                                          
 }                                                           
@@ -27,7 +26,9 @@ Zombie::~Zombie()
 }
 Zombie::Zombie(std::string name)
 {
-	this->name = name;
+
+	std::cout << "A zombie:\thas risen from the dead and will be staying in the cementary" << std::endl;
+	this->set_name(name);
 }
 
 void	Zombie::announce(){
@@ -38,7 +39,6 @@ void	Zombie::announce(){
 
 void	randomChump()
 {
-	Zombie zombie;
-	zombie.set_name("Sylvia Everhart");
+	Zombie zombie("Sylvia Everhart");
 	zombie.announce();
 }

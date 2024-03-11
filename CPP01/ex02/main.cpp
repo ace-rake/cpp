@@ -19,8 +19,14 @@ int	main(void)
 
 	print_test("Str content");
 	std::cout << str << std::endl;
+
 	print_test("Ptr content");
 	std::cout << ptr << std::endl;
+	
 	print_test("Ref content");
-	std::cout << ref << std::endl << std::endl;
+	std::cout << ref << std::endl;
+
+	print_test("Ptr dereference");
+	std::cout << *ptr << std::endl << std::endl;
+
 }

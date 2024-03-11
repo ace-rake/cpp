@@ -28,14 +28,14 @@ class    ClapTrap
 		void		setAd	(	int ad	);
 		int			getAd	(	void	)const;
 
-		void	attack		(	const std::string& target	);	
+		void	attack		(	const std::string& target	);
 		void	takeDamage	(	unsigned int amount	);
 		void	beRepaired	(	unsigned int amount	);
 		bool	isDead		(	void	)const;
 		bool	noEnergy	(	void	)const;
 		bool	cantFunction(	void	)const;
 
-	private:
+	protected:
 		/*_*/;
 		std::string _name;
 		int	_hp;
