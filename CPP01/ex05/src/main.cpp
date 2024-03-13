@@ -4,6 +4,7 @@
 int    main(void)
 {
 	print_test("Creating harl");
+	{
 	Harl child;
 
 	print_test("Harl: debug");
@@ -23,4 +24,5 @@ int    main(void)
 	child.complain("Nonexistent");
 
 	print_test("End of test");
+	}
 }

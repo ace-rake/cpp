@@ -33,16 +33,14 @@ void	Harl::warning(void)
 
 void	Harl::error(void)
 {
-	std::cout << "Error:\tThis is exactly why dad left you mom" << std::endl;
+	std::cout << "Error:\tThis is exactly why dad left you, mom" << std::endl;
 }
 
 void	Harl::complain(std::string level)
 {
 	auto func = map.find(level);
 	if (func != map.end())
-	{
 		(this->*(func->second))();
-	}
 	else
 		std::cout << "No such command: " << level << std::endl;
 }
