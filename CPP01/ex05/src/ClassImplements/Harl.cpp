@@ -4,10 +4,15 @@
 Harl::Harl(void)
 {
 	std::cout << "Harl: creating object\n";
-	map["debug"] = &Harl::debug;
-	map["warning"] = &Harl::warning;
-	map["info"] = &Harl::info;
-	map["error"] = &Harl::error;
+	this->map[0].level = "debug";
+	this->map[0].func = &Harl::debug;
+	this->map[1].level = "info";
+	this->map[1].func = &Harl::info;
+	this->map[2].level = "warning";
+	this->map[2].func = &Harl::warning;
+	this->map[3].level = "error";
+	this->map[3].func = &Harl::error;
+
 }
 
 // Destructor
@@ -38,9 +43,8 @@ void	Harl::error(void)
 
 void	Harl::complain(std::string level)
 {
-	auto func = map.find(level);
-	if (func != map.end())
-		(this->*(func->second))();
-	else
-		std::cout << "No such command: " << level << std::endl;
+	for(int i = 0; i < 4; ++i)
+		if (level == this->map[i].level)
+			return (this->*map[i].func)();
+	std::cout << "No such level:\t" << level << std::endl;
 }

@@ -1,9 +1,18 @@
 #ifndef HARL_HPP
 # define HARL_HPP
 
+#include "../main.h"
 #include <string>
 #include <map>
 #include <functional>
+class Harl;
+
+typedef struct	s_map
+{
+	std::string level;
+	void (Harl::*func)(void);
+
+}				t_map;
 
 // Custom class: Harl
 class    Harl
@@ -26,8 +35,10 @@ class    Harl
 		void	info	(	void	);
 		void	warning	(	void	);
 		void	error	(	void	);
-		std::map<std::string, void (Harl::*)()> map;
+		t_map map[4];
+	
 
 };
+
 
 #endif
