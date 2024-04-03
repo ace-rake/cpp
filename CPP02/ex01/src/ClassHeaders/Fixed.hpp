@@ -8,7 +8,7 @@ class    Fixed
 		// Constructor
 		Fixed	(	void	);
 		Fixed	(	const int raw	);
-		Fixed	(	const float raw	);
+		Fixed	(	const float value	);
 
 		// Copy constructor
 		Fixed	(	const Fixed& other	);

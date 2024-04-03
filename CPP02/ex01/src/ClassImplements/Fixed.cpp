@@ -10,7 +10,7 @@ Fixed::Fixed(void)
 Fixed::Fixed(const int raw)
 {
 	std::cout << "Fixed: creating object\n";
-	this->_value = raw;
+	this->_value = raw * (1 << _fBits);
 }
 Fixed::Fixed(const float raw)
 {
@@ -56,7 +56,7 @@ float	Fixed::toFloat(void)
 {
 	return (static_cast<float>(this->_value) / (1 << _fBits));
 }
-// Get the int value by bitshifting to the right byt _fBits(8)
+// Get the int value by bitshifting to the right by _fBits(8)
 int	Fixed::toInt(void)
 {
 	return (this->_value >> _fBits);
