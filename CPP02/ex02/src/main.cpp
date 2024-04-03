@@ -1,5 +1,5 @@
 #include "main.h"
-# include "../../../colors.h"
+# include "../../colors.h"
 
 
 void	equals_test(Fixed& a, Fixed& b)
@@ -44,12 +44,12 @@ void	min_test(Fixed& a, Fixed& b)
 
 void	max_test(Fixed& a, Fixed& b)
 {
-	std::cout << "From given Fixed " << a << " : " << b << ". " << Fixed::max(a,b) << " is the min" << std::endl;
+	std::cout << "From given Fixed " << a << " : " << b << ". " << Fixed::max(a,b) << " is the max" << std::endl;
 }
 
 void	max_test(const Fixed& a, const Fixed& b)
 {
-	std::cout << "From given Fixed " << a << " : " << b << ". " << Fixed::max(a,b) << " is the min" << std::endl;
+	std::cout << "From given Fixed " << a << " : " << b << ". " << Fixed::max(a,b) << " is the max" << std::endl;
 }
 
 void	min_test(const Fixed& a, const Fixed& b)
@@ -59,80 +59,85 @@ void	min_test(const Fixed& a, const Fixed& b)
 
 int    main(void)
 {
-	print_test("Starting tests\n");
-	print_test("Creating fixed number and setting raw bits");
-	{
-		Fixed	number;
-		std::cout << number.getRawBits() << std::endl;
-		number.setRawBits(69);
-		std::cout << number.getRawBits() << std::endl;
-	}
-	print_test("End of test\n");
-
-	print_test("Copy constructor");
-	{
-		Fixed	number;
-		number.setRawBits(69);
-		Fixed	numba(	number	);
-		std::cout << numba.getRawBits() << std::endl;
-		numba.setRawBits(420);
-		std::cout << numba.getRawBits() << std::endl;
-		std::cout << number.getRawBits() << std::endl;
-	}
-	print_test("End of test\n");
-
-	print_test("Copy assignment");
-	{
-		Fixed	number;
-		number.setRawBits(69);
-		Fixed fuck;
-		fuck = number;
-		std::cout << fuck.getRawBits() << std::endl;
-		fuck.setRawBits(420);
-		std::cout << fuck.getRawBits() << std::endl;
-		std::cout << number.getRawBits() << std::endl;
-	}
-	print_test("End of test\n");
-
-	print_test("<< overload");
-	{
-		Fixed number;
-		std::cout << number << std::endl;
-	}
-	print_test("End of test\n");
-
-	{
-		print_test("Creating fixed number with float");
-		Fixed	number(420.69f);
-		std::cout << number.getRawBits() << std::endl;
-		std::cout << number << std::endl;
-		std::cout << number.toFloat() << std::endl;
-		std::cout << number.toInt() << std::endl;
-		print_test("Setting the raw bits to 1.5");
-		number.setRawBits(256 + 128);
-		std::cout << number.getRawBits() << std::endl;
-		std::cout << number << std::endl;
-		std::cout << number.toFloat() << std::endl;
-		std::cout << number.toInt() << std::endl;
-		print_test("Setting the raw bits to the highest number lower than 1");
-		number.setRawBits(256 - 1);
-		std::cout << number.getRawBits() << std::endl;
-		std::cout << number << std::endl;
-		std::cout << number.toFloat() << std::endl;
-		std::cout << number.toInt() << std::endl;
-	}
-	print_test("End of test\n");
-
+/*
+ *    print_test("Starting tests\n");
+ *    print_test("Creating fixed number and setting raw bits");
+ *    {
+ *        Fixed	number;
+ *        std::cout << number.getRawBits() << std::endl;
+ *        number.setRawBits(69);
+ *        std::cout << number.getRawBits() << std::endl;
+ *    }
+ *    print_test("End of test\n");
+ *
+ *    print_test("Copy constructor");
+ *    {
+ *        Fixed	number;
+ *        number.setRawBits(69);
+ *        Fixed	numba(	number	);
+ *        std::cout << numba.getRawBits() << std::endl;
+ *        numba.setRawBits(420);
+ *        std::cout << numba.getRawBits() << std::endl;
+ *        std::cout << number.getRawBits() << std::endl;
+ *    }
+ *    print_test("End of test\n");
+ *
+ *    print_test("Copy assignment");
+ *    {
+ *        Fixed	number;
+ *        number.setRawBits(69);
+ *        Fixed fuck;
+ *        fuck = number;
+ *        std::cout << fuck.getRawBits() << std::endl;
+ *        fuck.setRawBits(420);
+ *        std::cout << fuck.getRawBits() << std::endl;
+ *        std::cout << number.getRawBits() << std::endl;
+ *    }
+ *    print_test("End of test\n");
+ *
+ *    print_test("<< overload");
+ *    {
+ *        Fixed number;
+ *        std::cout << number << std::endl;
+ *    }
+ *    print_test("End of test\n");
+ *
+ *    {
+ *        print_test("Creating fixed number with float");
+ *        Fixed	number(420.69f);
+ *        std::cout << number.getRawBits() << std::endl;
+ *        std::cout << number << std::endl;
+ *        std::cout << number.toFloat() << std::endl;
+ *        std::cout << number.toInt() << std::endl;
+ *        print_test("Setting the raw bits to 1.5");
+ *        number.setRawBits(256 + 128);
+ *        std::cout << number.getRawBits() << std::endl;
+ *        std::cout << number << std::endl;
+ *        std::cout << number.toFloat() << std::endl;
+ *        std::cout << number.toInt() << std::endl;
+ *        print_test("Setting the raw bits to the highest number lower than 1");
+ *        number.setRawBits(256 - 1);
+ *        std::cout << number.getRawBits() << std::endl;
+ *        std::cout << number << std::endl;
+ *        std::cout << number.toFloat() << std::endl;
+ *        std::cout << number.toInt() << std::endl;
+ *    }
+ *    print_test("End of test\n");
+ *
+ */
 	print_test("Starting to test comparison overloading");
 	{
 
 		print_test("Creating some value to work with");
 		Fixed a(6.0f);
 		Fixed b(6.0f);
-		Fixed c(6 * 256);
-		Fixed d(6);
+		Fixed c;
+		c.setRawBits(6*256);
+		Fixed d;
+		d.setRawBits(6);
 		Fixed e(5.5f);
 		Fixed f(5);
+		f.setRawBits(5);
 
 		print_test("Equals overloading");
 		equals_test(a, b);
@@ -164,12 +169,16 @@ int    main(void)
 	{ 
 
 		print_test("Creating some value to work with");
-		Fixed a(6.5f);
-		Fixed b(5.5f);
-		Fixed c(6 * 256);
-		Fixed d(6);
+		Fixed a(6.0f);
+		Fixed b(6.0f);
+		Fixed c;
+		c.setRawBits(6*256);
+		Fixed d;
+		d.setRawBits(6);
 		Fixed e(5.5f);
 		Fixed f(5);
+		f.setRawBits(5);
+
 		print_test("Multiply");
 		std::cout << a << " * " << b << " = " << a * b << std::endl;
 		std::cout << b << " * " << d << " = " << b * d << std::endl;
@@ -221,10 +230,12 @@ int    main(void)
 
 	print_test("Start of min/max test");
 	{
-		Fixed a(5.0f);
+		Fixed a(6.0f);
 		Fixed b(6.0f);
-		Fixed c(5);
-		Fixed d(6);
+		Fixed c;
+		c.setRawBits(6*256);
+		Fixed d;
+		d.setRawBits(6);
 		min_test(a,b);
 		min_test(c,d);
 		min_test(a,a);
@@ -235,7 +246,9 @@ int    main(void)
 		const Fixed e(5.0f);
 		const Fixed f(6.0f);
 		const Fixed g(5);
+		((Fixed)g).setRawBits(5);
 		const Fixed h(6);
+		((Fixed)h).setRawBits(5);
 		min_test(e,f);
 		min_test(g,h);
 		min_test(f,f);

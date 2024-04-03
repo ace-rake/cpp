@@ -9,12 +9,15 @@ Fixed::Fixed(void)
 
 Fixed::Fixed(const int raw)
 {
-	std::cout << "Fixed: creating object with int value " << raw << std::endl;
-	this->_value = raw;
+	std::cout << "Fixed: creating object\n";
+	this->_value = raw * (1 << _fBits);
 }
+
 Fixed::Fixed(const float raw)
 {
-	std::cout << "Fixed: creating object with float value " << raw << std::endl;
+	/*
+	 *std::cout << "Fixed: creating object with float value " << raw << std::endl;
+	 */
 	this->_value = static_cast<const int>( raw * (1 << _fBits));
 }
 
@@ -76,6 +79,11 @@ bool	Fixed::operator == (Fixed& that) const
 {
 	return this->getRawBits() == that.getRawBits();
 }
+// Not eq assignment operator overload
+bool	Fixed::operator != (Fixed& that) const
+{
+	return this->getRawBits() != that.getRawBits();
+}
 // Bigger than assignment operator overload
 bool	Fixed::operator > (Fixed& that) const
 {
@@ -123,27 +131,27 @@ Fixed	Fixed::operator - (Fixed& that) const
 // Pre increment
 Fixed&	Fixed::operator ++ ()
 {
-	this->_value += (1 << _fBits);
+	this->_value += (1);
 	return *this;
 }
 // Post increment
 Fixed	Fixed::operator ++ (int)
 {
 	Fixed tmp = *this;
-	this->_value += (1 << _fBits);
+	this->_value += (1);
 	return tmp;
 }
 // Pre decrement
 Fixed&	Fixed::operator -- ()
 {
-	this->_value -= (1 << _fBits);
+	this->_value -= (1);
 	return *this;
 }
 // Post decrement
 Fixed	Fixed::operator -- (int)
 {
 	Fixed tmp = *this;
-	this->_value -= (1 << _fBits);
+	this->_value -= (1);
 	return tmp;
 }
 

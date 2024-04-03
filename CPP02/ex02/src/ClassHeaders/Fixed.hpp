@@ -20,6 +20,8 @@ class    Fixed
 		// Comparison operator overload
 		// Eq assignment operator overload
 		bool	operator == (	Fixed& that	)const;
+		// Not eq assignment operator overload
+		bool	operator != (	Fixed& that	)const;
 		// Bigger than assignment operator overload
 		bool	operator > (	Fixed& that	)const;
 		// Smaller than assignment operator overload
