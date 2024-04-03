@@ -35,3 +35,13 @@ void	Cat::makeSound(void)const
 {
 	std::cout << this->getType() << "\t:Nyan" << std::endl;
 }
+
+Brain	*Cat::getBrain(void)const
+{
+	return this->_brain;
+}
+void	Cat::setBrain(Brain *brain)
+{
+	delete this->_brain;
+	this->_brain = new Brain(*brain);
+}

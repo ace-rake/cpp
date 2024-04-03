@@ -12,6 +12,7 @@ Dog::Dog(void)
 Dog::Dog(const Dog& other)
 {
 	std::cout << "Dog\t:copying object\n";
+	this->_brain = new Brain(*other._brain);
 	*this = other;
 }
 
@@ -43,14 +44,5 @@ Brain	*Dog::getBrain(void)const
 void	Dog::setBrain(Brain *brain)
 {
 	delete this->_brain;
-	this->_brain = brain;
-}
-
-void	Dog::giveIdea(std::string idea)
-{
-	for (int i = 0; this->_brain->_ideas[i].empty() && i < 100 ; ++i)
-	{
-
-	}
-
+	this->_brain = new Brain(*brain);
 }

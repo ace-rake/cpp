@@ -20,8 +20,9 @@ class    Brain
 		// Destructor
 		~Brain(void);
 
-		void	setIdeas(	std::string ideas[100]	);
+		void	setIdeas		(	std::string ideas[100]	);
 		std::string	*getIdeas	(	void	);
+		void	giveIdea		(	std::string idea	);
 
 	protected:
 		;

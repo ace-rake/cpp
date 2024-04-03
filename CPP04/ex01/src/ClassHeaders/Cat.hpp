@@ -21,6 +21,9 @@ class    Cat : virtual public Animal
 
 		void	makeSound	(	void	)const;
 
+		Brain	*getBrain	(	void	)const;
+		void	setBrain	(	Brain *brain	);
+
 	protected:
 		;
 

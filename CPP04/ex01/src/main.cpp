@@ -29,13 +29,59 @@ int    main(void)
  */
 
 	{
-		Animal *dog = new Dog();
+		Dog *dog = new Dog();
 
-		for (int i = 0; i < 100 ; i++)
+		for (int i = 0; i < 1 ; i++)
 		{
-			dynamic_cast<Dog*>(dog)->giveIdea("Wowza");
+			(dog)->getBrain()->giveIdea("Wowza");
+		}
+		std::string *ideas = dog->getBrain()->getIdeas();
 
+		for (int i = 0; i < 1 ; i++)
+		{
+			std::cout << ideas[i] << std::endl;
 		}
 
+		
+		Dog *newdog = new Dog();
+
+		ideas = newdog->getBrain()->getIdeas();
+		newdog->setBrain(dog->getBrain());
+		for (int i = 0; i < 1 ; i++)
+		{
+			std::cout << ideas[i] << std::endl;
+		}
+
+
+		delete newdog;
+		delete dog;
+	}
+	{
+		Cat *dog = new Cat();
+
+		for (int i = 0; i < 1 ; i++)
+		{
+			(dog)->getBrain()->giveIdea("Wowza");
+		}
+		std::string *ideas = dog->getBrain()->getIdeas();
+
+		for (int i = 0; i < 1 ; i++)
+		{
+			std::cout << ideas[i] << std::endl;
+		}
+
+		
+		Cat *newdog = new Cat();
+
+		ideas = newdog->getBrain()->getIdeas();
+		newdog->setBrain(dog->getBrain());
+		for (int i = 0; i < 1 ; i++)
+		{
+			std::cout << ideas[i] << std::endl;
+		}
+
+
+		delete newdog;
+		delete dog;
 	}
 }

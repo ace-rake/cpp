@@ -23,7 +23,6 @@ class    Dog : virtual public Animal
 
 		Brain	*getBrain	(	void	)const;
 		void	setBrain	(	Brain *brain	);
-		void	giveIdea	(	std::string idea	);
 
 	protected:
 		;
