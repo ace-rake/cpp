@@ -10,6 +10,6 @@ int main(int argc, char **argv)
 		for (int i = 1; i < argc; ++i)
 			for (unsigned long j = 0; j < strlen(argv[i]); j++)
 				std::cout << static_cast<char>(toupper(argv[i][j]));
-	std::cout << std::endl;
+	std::cout << std::endl;	
 }
 	
