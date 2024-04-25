@@ -29,10 +29,13 @@
 #define BRIGHT_CYAN    "\033[36;1m"      /* Bright Cyan */
 #define BRIGHT_WHITE   "\033[37;1m"      /* Bright White */
 
+#ifndef PRINT_TEST
+#define PRINT_TEST
 void	print_test(std::string test)
 {
 	std::cout << std::endl << BRIGHT_BLUE << ULINE << "TEST:\t" << test << RESET << std::endl;
 }
+#endif
 
 
 #endif // COLORS_H
