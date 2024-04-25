@@ -11,6 +11,6 @@ int main(void)
 		std::cout << "\nInput :";
 		std::cin >> input;
 		ScalarConverter::convert(input);
-		ScalarConverter::printInfo(input);
+		/* ScalarConverter::printInfo(input); */
 	}
 }
