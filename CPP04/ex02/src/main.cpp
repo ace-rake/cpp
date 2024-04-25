@@ -7,22 +7,22 @@ int    main(void)
 /*
  *    {
  *        print_test("Object creation");
- *        const Animal *animal = new Animal();
+ *        //const Animal *animal = new Animal();
  *        const Animal *dog = new Dog();
  *        const Animal *cat = new Cat();
  *
  *        print_test("All object types");
- *        std::cout << animal->getType() << std::endl;
+ *        //std::cout << animal->getType() << std::endl;
  *        std::cout << dog->getType() << std::endl;
  *        std::cout << cat->getType() << std::endl;
  *
  *        print_test("All makeSound");
- *        animal->makeSound();
+ *        //animal->makeSound();
  *        dog->makeSound();
  *        cat->makeSound();
  *
  *        print_test("Object deletion");
- *        delete animal;
+ *        //delete animal;
  *        delete cat;
  *        delete dog;
  *    }
@@ -82,7 +82,7 @@ int    main(void)
 		delete dog;
 	}
 	{
-		print_test("give gato ideas");
+		print_test("gato test");
 		Cat *dog = new Cat();
 
 		for (int i = 0; i < 1 ; i++)

@@ -1,0 +1,14 @@
+Reading symbols from Animal...
+.gdbinit: No such file or directory.
+Reading symbols from Animal...
+.gdbinit: No such file or directory.
+.gdbinit: No such file or directory.
+Reading symbols from Animal...
+.gdbinit: No such file or directory.
+Detaching from program: /nfs/homes/vdenisse/Documents/git_collection/cpp/CPP04/ex02/Animal, Remote target
+Ending remote debugging.
+[Inferior 1 (Remote target) detached]
+Reading symbols from Animal...
+.gdbinit: No such file or directory.
+.gdbinit: No such file or directory.
+Undefined command: "reset".  Try "help".

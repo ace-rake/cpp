@@ -4,7 +4,7 @@
 Animal::Animal(void)
 {
 	std::cout << "Animal\t:creating object\n";
-	this->_type = "Animal";
+	this->type = "Animal";
 }
 
 // Copy constructor
@@ -19,7 +19,7 @@ Animal& Animal::operator = (const Animal& other)
 {
 	std::cout << "Animal\t:copying object (assignement)\n";
 	if (this != &other)
-		this->_type = other._type;
+		this->type = other.type;
 	return (*this);
 }
 
@@ -31,12 +31,12 @@ Animal::~Animal(void)
 
 std::string	Animal::getType(void)const
 {
-	return (this->_type);
+	return (this->type);
 }
 
 void	Animal::setType(std::string type)
 {
-	this->_type = type;
+	this->type = type;
 }
 
 void	Animal::makeSound(void)const

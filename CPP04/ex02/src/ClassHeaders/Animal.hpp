@@ -6,11 +6,6 @@
 class    Animal
 {
 	public:
-		// Constructor
-		Animal(void);
-
-		// Copy constructor
-		Animal(const Animal& other);
 
 		// Copy assignment operator overload
 		Animal& operator = (const Animal& other);
@@ -21,9 +16,14 @@ class    Animal
 		std::string getType	(	void	)const;
 		void		setType	(	std::string type	);
 
-		virtual void	makeSound	(	void	)const;
+		virtual void	makeSound	(	void	)const = 0;
 	protected:
-		std::string _type;
+		std::string type;
+		// Constructor
+		Animal(void);
+
+		// Copy constructor
+		Animal(const Animal& other);
 		;
 
 	private:

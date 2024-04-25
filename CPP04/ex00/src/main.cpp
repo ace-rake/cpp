@@ -3,7 +3,7 @@
 
 // 
 int    main(void)
-{
+{;
 	print_test("Object creation");
 	const Animal *animal = new Animal();
 	const Animal *dog = new Dog();
