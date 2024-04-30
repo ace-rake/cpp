@@ -26,18 +26,18 @@ class	Span
 		int	longestSpan	(	void	)const;
 
 		class	overflow : public std::exception
-		{
-			public:
-				virtual char * what()const throw()
-				{
-					return (char *)"Already full";
-				}
-		};
-		
+	{
+		public:
+			virtual const char * what()const throw()
+			{
+				return (char *)"Already full";
+			}
+	};
+
 		class	notEnoughValues : public std::exception
 	{
 		public:
-			virtual char* what()const throw()
+			virtual const char* what()const throw()
 			{
 				return (char *)"not enough values";
 			}
