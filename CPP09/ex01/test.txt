@@ -1,0 +1,43 @@
+Test Case 1:
+2 3 + 4 *
+20
+
+Test Case 2:
+5 6 * 3 2 - +
+31
+
+Test Case 3:
+9 2 / 3 *
+13.5
+
+Test Case 4:
+8 4 / 2 *
+4
+
+Test Case 5:
+9 3 + 6 2 * -
+0
+
+Test Case 6:
+7 3 2 + * 4 -
+31
+
+Test Case 7:
+5 2 + 9 3 / *
+21
+
+Test Case 8:
+6 2 * 3 2 / -
+10.5
+
+Test Case 9:
+4 2 / 5 3 - *
+4
+
+Test Case 10:
+8 4 + 6 2 / * * * * 
+Not enough numbers
+
+Test Case 11:
+8 4 p + 6 9 * - -
+Not a number or operator
