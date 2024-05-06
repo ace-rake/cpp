@@ -35,6 +35,29 @@ AForm::~AForm(void)
 	std::cout << "AForm:\tdestroying object\n";
 }
 
+// Getters and Setters
+std::string AForm::getName()const
+{
+	return _name;
+}
+
+bool	AForm::getSigned()const
+{
+	return _signed;
+}
+
+void	AForm::setSigned(bool newSigned)
+{
+	_signed = newSigned;
+}
+short	AForm::getGradeSign()const
+{
+	return _gradeSign;
+}
+short	AForm::getGradeExec()const
+{
+	return _gradeExec;
+}
 const char * AForm::GradeTooHighException::what()const throw()
 {
 	return	(char *) "AForm grade too high\n";

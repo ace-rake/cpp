@@ -35,3 +35,8 @@ void	PresidentialPardonForm::beExecuted()const
 {
 	std::cout << _target << " has been pardoned by Zaphod Beeblebrox\n";
 }
+
+const std::string & PresidentialPardonForm::getTarget()const
+{
+	return _target;
+}

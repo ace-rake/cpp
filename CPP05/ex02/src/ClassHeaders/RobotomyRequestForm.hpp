@@ -21,7 +21,7 @@ class	RobotomyRequestForm : public AForm
 		~RobotomyRequestForm	(void);
 
 		// Getters and Setter
-		const std::string & getTarget	(	void	)const{return _target;};
+		const std::string & getTarget	(	void	)const;
 
 		void	beExecuted	()const;
 	protected:

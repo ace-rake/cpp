@@ -32,6 +32,11 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 	std::cout << "ShrubberyCreationForm:\tdestroying object\n";
 }
 
+const std::string & ShrubberyCreationForm::getTarget()const
+{
+	return _target;
+}
+
 void	ShrubberyCreationForm::beExecuted()const
 {
 	std::string name = (_target + "_shrubbery");

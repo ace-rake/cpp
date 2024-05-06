@@ -46,3 +46,7 @@ void	RobotomyRequestForm::beExecuted()const
 	else
 		std::cout << "Robotomisation on " << _target << " has failed\n";
 }
+const std::string & RobotomyRequestForm::getTarget()const
+{
+	return _target;
+}
