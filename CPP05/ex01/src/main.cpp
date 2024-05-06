@@ -62,10 +62,57 @@ int main() {
 	/* 		std::cout << e.what(); */
 	/* 	} */
 	/* } */
+
+	{
+		print_test("Sign form");
+		Bureaucrat b("Geoff", 1);
+		Form f("Build form", 150, 150);
+		std::cout << "sign form\n" << f << " by\n" << b << std::endl;
+		b.signForm(f);
+		std::cout << f << std::endl;
+	}
+
+	{
+		print_test("Invalid grade values");
+		try
+		{
+			Form f ("invalid", 151, 1);
+		}
+		catch(std::exception & e)
+		{
+			std::cout << e.what();
+		}
+		try
+		{
+			Form f ("invalid", 0, 1);
+		}
+		catch(std::exception & e)
+		{
+			std::cout << e.what();
+		}
+		try
+		{
+			Form f ("invalid", 1, 151);
+		}
+		catch(std::exception & e)
+		{
+			std::cout << e.what();
+		}
+		try
+		{
+			Form f ("invalid", 1, 0);
+		}
+		catch(std::exception & e)
+		{
+			std::cout << e.what();
+		}
+	}
+
 	{
 		print_test("Not enough clearance");
 		Bureaucrat b("Geoff", 2);
 		Form f("test", 1, 1);
+		std::cout << f << std::endl;
 		try
 		{
 			b.signForm(f);
