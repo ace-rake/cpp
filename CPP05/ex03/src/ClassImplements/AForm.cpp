@@ -63,3 +63,12 @@ void	AForm::execute(const Bureaucrat & b)const
 		throw UnsignedForm();
 	this->beExecuted();
 }
+
+std::ostream & operator << (std::ostream & os, AForm & other)
+{
+	os << "name : " << other.getName();
+	os << ", signed : " << (other.getSigned() ? "True" : "False");
+	os << ", gradeSign : " << other.getGradeSign();
+	os << ", gradeExec : " << other.getGradeExec();
+	return os;
+}
