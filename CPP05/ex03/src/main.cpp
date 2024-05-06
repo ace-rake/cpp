@@ -44,7 +44,9 @@ int main() {
 	{
 		print_test("intern shit");
 		Intern i;
-		
+		AForm *f = i.makeForm("robotomy request", "you");
+		std::cout << *f << std::endl;
+		delete f;
 	}
     return 0;
 }
