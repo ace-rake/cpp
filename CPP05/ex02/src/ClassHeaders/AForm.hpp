@@ -18,7 +18,7 @@ class	AForm
 		AForm& operator = (const AForm& other);
 
 		// Destructor
-		~AForm	(void);
+		virtual ~AForm	(void);
 
 		// Getters and Setter
 		std::string	getName		(	void	) const ;
