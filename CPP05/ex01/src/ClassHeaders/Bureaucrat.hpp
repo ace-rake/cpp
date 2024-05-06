@@ -40,7 +40,7 @@ class	Bureaucrat
 		void	incrementGrade(	void	);
 		void	decrementGrade(	void	);
 
-		void	signForm(Form f)const;
+		void	signForm(Form & f)const;
 
 	protected:
 		/*_*/;
