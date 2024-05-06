@@ -41,8 +41,13 @@ int main() {
 	}
 	{
 		print_test("Increment and decrement");
-		print_test("Decrement beneath 1");
 		Bureaucrat Geoff("Geoff", 1);
+		std::cout << Geoff << std::endl;
+		Geoff.incrementGrade();
+		std::cout << Geoff << std::endl;
+		Geoff.decrementGrade();
+		std::cout << Geoff << std::endl;
+		print_test("Decrement beneath 1");
 		try{
 			Geoff.decrementGrade();
 		}
