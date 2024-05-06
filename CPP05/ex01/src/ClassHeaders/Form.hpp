@@ -22,11 +22,11 @@ class	Form
 		~Form	(void);
 
 		// Getters and Setter
-		std::string	getName		(	void	) const { return _name;};
-		bool		getSigned	(	void	) const	{ return _signed;};
-		void		setSigned	(	bool newSigned	)	{_signed = newSigned;};
-		short		getGradeSign	(	void	) const { return _gradeSign;};
-		short		getGradeExec	(	void	) const { return _gradeExec;};
+		std::string	getName		(	void	) const;
+		bool		getSigned	(	void	) const;
+		void		setSigned	(	bool newSigned	);
+		short		getGradeSign	(	void	) const;
+		short		getGradeExec	(	void	) const;
 
 		// Exceptions
 		class GradeTooHighException : public std::exception
