@@ -23,12 +23,6 @@ class	ScalarConverter
 {
 	public:
 
-		// Copy assignment operator overload
-		ScalarConverter& operator = (const ScalarConverter& other);
-
-		// Destructor
-		~ScalarConverter	(void);
-
 		// Getters and Setter
 
 		static	void	convert	(	std::string	);
@@ -45,6 +39,17 @@ class	ScalarConverter
 
 		// Copy constructor
 		ScalarConverter	(	const ScalarConverter& other	);
+
+		// Copy assignment operator overload
+		ScalarConverter& operator = (const ScalarConverter& other);
+
+		// Destructor
+		~ScalarConverter	(void);
+
+		class invalid : public std::exception
+		{
+			virtual const char * what() const throw();
+		};
 
 
 		// Functions to find type

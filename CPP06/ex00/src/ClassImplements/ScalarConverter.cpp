@@ -38,10 +38,23 @@ ScalarConverter::~ScalarConverter(void)
 	/* std::cout << "ScalarConverter:\tdestroying object\n"; */
 }
 
+const char * ScalarConverter::invalid::what()const throw()
+{
+	return (char *)"Invalid sequence";
+}
+
 void ScalarConverter::convert(std::string str)
 {
 	ScalarConverter converter(str);
-	converter.whatIs();
+	try
+	{	
+		converter.whatIs();
+	}
+	catch(std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+		return ;
+	}
 	converter.printConv();
 }
 
@@ -67,6 +80,8 @@ void	ScalarConverter::whatIs()
 		_type = FLOAT;
 	else if (isD())
 		_type = DOUBLE;
+	else
+		throw invalid();
 }
 
 bool	ScalarConverter::isL()
