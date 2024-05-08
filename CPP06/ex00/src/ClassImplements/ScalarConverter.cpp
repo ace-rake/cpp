@@ -291,7 +291,7 @@ void	ScalarConverter::printD()const
 	}
 	if (_d == 0.0)
 		std::cout << ".0\n";
-	else if (_d == static_cast<int>(_f))
+	else if (_d == static_cast<int>(_d))
 		std::cout << _d << ".0\n";
 	else
 		std::cout << _d << "\n";
