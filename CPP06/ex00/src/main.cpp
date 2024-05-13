@@ -10,6 +10,7 @@ int main(void)
 	{
 		std::cout << "\nInput :";
 		std::cin >> input;
+		std::cout << input << std::endl;
 		ScalarConverter::convert(input);
 		/* ScalarConverter::printInfo(input); */
 	}
