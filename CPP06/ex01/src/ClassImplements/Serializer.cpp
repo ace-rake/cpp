@@ -18,10 +18,7 @@ Serializer::Serializer(const Serializer& other)
 Serializer& Serializer::operator = (const Serializer& other)
 {
 	std::cout << "Serializer:\tcopying object (assignment)\n";
-	if (this != &other)
-	{
-		/* this->_=other._ */
-	}
+	(void)other;
 	return (*this);
 }
 

@@ -13,13 +13,6 @@ typedef struct	Data
 class	Serializer
 {
 	public:
-		// Copy assignment operator overload
-		Serializer& operator = (const Serializer& other);
-
-		// Destructor
-		~Serializer	(void);
-
-
 
 		static uintptr_t	serialize	(	Data *	);
 		static Data * 		deserialize	(	uintptr_t	);
@@ -33,6 +26,13 @@ class	Serializer
 
 		// Copy constructor
 		Serializer	(	const Serializer& other	);
+
+		// Copy assignment operator overload
+		Serializer& operator = (const Serializer& other);
+
+		// Destructor
+		~Serializer	(void);
+
 
 		/*_*/;
 };
