@@ -15,7 +15,7 @@ add_link_options(--std=c++98 -Wall -Werror -Wextra -g)
 add_compile_options(--std=c++98 -Wall -Wextra -Werror -g -O0)
 
 # Add an executable target
-add_executable(Exception ${MySources})
+add_executable(Serializer ${MySources})
 
 # Add extra targets
 add_custom_target(re
