@@ -23,8 +23,6 @@ class	ScalarConverter
 {
 	public:
 
-		// Getters and Setter
-
 		static	void	convert	(	std::string	);
 
 		// Tools
