@@ -24,7 +24,7 @@ A& A::operator = (const A& other)
 	std::cout << "A:\tcopying object (assignment)\n";
 	if (this != &other)
 	{
-		/* this->_=other._ */
+		this->_i = other._i;
 	}
 	return (*this);
 }

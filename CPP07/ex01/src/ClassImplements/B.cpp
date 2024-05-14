@@ -20,7 +20,7 @@ B& B::operator = (const B& other)
 	std::cout << "B:\tcopying object (assignment)\n";
 	if (this != &other)
 	{
-		/* this->_=other._ */
+		this->_c = other._c;
 	}
 	return (*this);
 }
