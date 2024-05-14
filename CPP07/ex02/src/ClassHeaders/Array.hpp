@@ -41,6 +41,7 @@ class	Array
 			if (this != &other)
 			{
 				_n = other.getSize();
+				delete[] _var;
 				_var = new T[_n];
 				for (size_t n = 0; n < _n; ++n)
 					_var[n] = other[n];
@@ -71,7 +72,7 @@ class	Array
 		// Destructor
 		~Array<T>	(void)
 		{
-			delete _var;
+			delete[] _var;
 		};
 
 		void	setNElement	(	T t, size_t n	)
