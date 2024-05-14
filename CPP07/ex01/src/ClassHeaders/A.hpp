@@ -19,8 +19,8 @@ class	A
 		~A	(void);
 
 		// Getters and Setter
-		void	setI(int i){_i = i;};
-		int	getI(){return _i;};
+		void	setI(int i);
+		int	getI();
 
 		void	incrementI	(	void	);
 

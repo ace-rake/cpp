@@ -35,6 +35,16 @@ A::~A(void)
 	std::cout << "A:\tdestroying object\n";
 }
 
+void	A::setI(int i)
+{
+	_i = i;
+}
+
+int	A::getI()
+{
+	return _i;
+}
+
 void	A::incrementI()
 {
 	_i++;

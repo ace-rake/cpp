@@ -31,3 +31,12 @@ B::~B(void)
 	std::cout << "B:\tdestroying object\n";
 }
 
+void	B::setC(char c)
+{
+	_c = c;
+}
+
+void	B::printC()
+{
+	std::cout << _c;
+}

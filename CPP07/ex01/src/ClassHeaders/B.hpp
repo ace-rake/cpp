@@ -2,7 +2,6 @@
 # define B_HPP
 
 // Custom class: B
-#include <iostream>
 class	B
 {
 	public:
@@ -19,9 +18,9 @@ class	B
 		~B	(void);
 
 		// Getters and Setter
-		void	setC(char c){_c = c;}
+		void	setC(char c);
 
-		void	printC(void){std::cout << _c << std::endl;}
+		void	printC(void);
 		
 	protected:
 		/*_*/;
