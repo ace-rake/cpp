@@ -93,7 +93,7 @@ class	Array
 };
 
 template <typename T>
-std::ostream& operator << (std::ostream& o, Array<T> arr)
+std::ostream& operator << (std::ostream& o, Array<T> & arr)
 {
 	for (size_t n = 0 ; n < arr.getSize(); n++)
 		o << arr[n] << " ";
