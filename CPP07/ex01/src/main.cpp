@@ -45,4 +45,5 @@ int main(void)
 	for (size_t t = 0; t < n; ++t)
 		std::cout << test[t]; 
 	std::cout << std::endl;
+	delete[] test;
 }
