@@ -4,6 +4,7 @@
 // Custom class: Span
 #include <cstddef>
 #include <exception>
+#include <list>
 class	Span
 {
 	public:
@@ -22,25 +23,20 @@ class	Span
 		// Getters and Setter
 
 		void	addNumber	(	int	);
+		void	addNumberIt	(	std::list<int>::iterator begin, std::list<int>::iterator end);
 		int	shortestSpan	(	void	)const;
 		int	longestSpan	(	void	)const;
 
 		class	overflow : public std::exception
 	{
 		public:
-			virtual const char * what()const throw()
-			{
-				return (char *)"Already full";
-			}
+			virtual const char * what()const throw();
 	};
 
 		class	notEnoughValues : public std::exception
 	{
 		public:
-			virtual const char* what()const throw()
-			{
-				return (char *)"not enough values";
-			}
+			virtual const char* what()const throw();
 	};
 
 	protected:
