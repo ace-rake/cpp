@@ -11,11 +11,14 @@ Date::Date()
 
 Date::Date(std::string date)
 {
+	
+
+
 	_year = atoi(date.substr(0, date.find('-')).c_str());
 	date = date.substr(date.find('-') + 1);
 	_month = atoi(date.substr(0, date.find('-')).c_str());
 	date = date.substr(date.find('-') + 1);
-	_day = atoi(date.substr(0, date.find('-')).c_str());
+	_day = atoi(date.c_str());
 }
 
 // Copy constructor

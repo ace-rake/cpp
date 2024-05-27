@@ -2,14 +2,12 @@
 # define BTC_HPP
 #include "Date.hpp"
 #include <map>
-#include <string>
 // Custom class: Btc
 class	Btc
 {
 	public:
 		// Constructor
 		Btc	(	void	);
-		Btc	(	std::string	);
 
 		// Copy constructor
 		Btc	(	const Btc& other	);
@@ -25,7 +23,6 @@ class	Btc
 		void	printData(void)const;
 		void	printData(Date)const;
 		float	retrieve(Date)const;
-		float	retrieve(std::string)const;
 	protected:
 		/*_*/;
 
