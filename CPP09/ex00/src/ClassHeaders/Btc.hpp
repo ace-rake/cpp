@@ -1,6 +1,7 @@
 #ifndef BTC_HPP
 # define BTC_HPP
 #include "Date.hpp"
+#include <exception>
 #include <map>
 // Custom class: Btc
 class	Btc
@@ -22,7 +23,12 @@ class	Btc
 
 		void	printData(void)const;
 		void	printData(Date)const;
-		float	retrieve(Date)const;
+		float	retrieve(std::string)const;
+		class	invalidValue: public std::exception
+	{
+		public:
+			virtual const char * what()const throw();
+	};
 	protected:
 		/*_*/;
 

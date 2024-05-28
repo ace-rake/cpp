@@ -20,48 +20,14 @@ class	Date
 		Date& operator = (const Date& other);
 
 		// Equals operator overload
-		bool	operator == (const Date& other)const
-		{
-			if (	_year == other._year &&
-				_month == other._month &&
-				_day == other._day)
-				return (true);
-			return false;
-		};
+		bool	operator == (const Date& other)const;
 
 		// Less than overload
-		bool	operator < (const Date& other)const
-		{
-			if (_year < other._year)
-				return true;
-			else if (_year > other._year)
-				return false;
-			if (_month < other._month)
-				return true;
-			else if (_month > other._month)
-				return false;
-			if (_day < other._day)
-				return true;
-			return false;
-		}
-		Date &	operator ++ ()
-		{
-			if (++_day > 31)
-			{
-				_day = 1;
-				if (++_month > 12)
-				{
-					_month = 1;
-					_year++;
-				}
-			}
-			return *this;
-		}
+		bool	operator < (const Date& other)const;
 
-		int operator - (const Date&other)const
-		{
-			return (abs(this->getTotalDays() - other.getTotalDays()));
-		}
+		Date &	operator ++ ();
+
+		int operator - (const Date&other)const;
 
 		// Destructor
 		~Date	(void);
@@ -71,17 +37,8 @@ class	Date
 		int	getYear(void)const{return _year;}
 		int	getMonth(void)const{return _month;}
 		int	getDay(void)const{return _day;}
-		int	getTotalDays(void)const
-		{
-			return (_year * 372) + (_month * 31) + _day;
-		}
-		void	printDate()
-		{
-			std::cout << "Year:month:day" <<
-				_year << "," <<
-				_month<< "," <<
-				_day << std::endl;
-		}
+		int	getTotalDays(void)const;
+		void	printDate();
 	protected:
 		/*_*/;
 

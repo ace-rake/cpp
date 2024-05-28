@@ -13,7 +13,10 @@ Btc::Btc()
 	for (std::string line; std::getline(stream, line);)
 	{
 		Date date(line);
-		_data[date] = atof(line.substr(line.find(",") + 1).c_str());
+		float value = atof(line.substr(line.find(",") + 1).c_str());
+		if (value < 0)
+			throw invalidValue();
+		_data[date] = value;
 	}
 	stream.close();
 }
@@ -82,8 +85,19 @@ void	Btc::printData(Date date)const
 /* 	return retval; */
 /* } */
 
-float	Btc::retrieve(Date date)const
+float	Btc::retrieve(std::string line)const
 {
+	Date date(line);
+	double amount = atof((line.substr(line.find('|') + 1)).c_str());
+	if (amount < 0 || 1000 < amount)
+		throw invalidValue();
 	std::cout << "Looking for " << date << std::endl;
-	return (--_data.lower_bound(date))->second;
+	float value =  (--_data.lower_bound(date))->second;
+	std::cout << "Value, Amount :" << value << "," << amount << std::endl;
+	return value * amount;
+}
+
+const char * Btc::invalidValue::what() const throw()
+{
+	return (char *)"Invalid value";
 }

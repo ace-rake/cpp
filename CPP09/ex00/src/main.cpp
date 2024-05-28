@@ -9,7 +9,9 @@ bool check_line(const std::string& str) {
     std::regex pattern(R"(^\d{4}-\d{2}-\d{2} \| .+$)");
 
     // Use regex_match to check if the string matches the pattern
-    return std::regex_match(str, pattern);
+    if (std::regex_match(str, pattern))
+	    return (true);
+    throw std::exception();
 }
 int	main(int argc, char **argv)
 {
@@ -23,20 +25,28 @@ int	main(int argc, char **argv)
 		std::cout << "cant open " << argv[1] << std::endl;
 		return (0);
 	}
-	std::string line;
 
-	while (std::getline(input, line))
+	try
 	{
-		std::cout << "checking :" <<line<<std::endl;
-		std::cout << "Check line :" << check_line(line) << std::endl;
-		try
+		Btc coin;
+		std::string line;
+		while (std::getline(input, line))
 		{
-			Btc coin;
-			std::cout << coin.retrieve(line) << std::endl << std::endl;
+			try
+			{
+				std::cout << "checking :" <<line<<std::endl;
+				check_line(line);
+				std::cout << coin.retrieve(line) << std::endl;
+			}
+			catch (std::exception &e)
+			{
+				std::cout << e.what() << std::endl;
+			}
+			std::cout << std::endl;
 		}
-		catch (std::exception &e)
-		{
-			std::cout << e.what() << std::endl;
-		}
+	}
+	catch(std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
 	}
 }
