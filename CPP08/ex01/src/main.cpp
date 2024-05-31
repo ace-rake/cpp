@@ -16,7 +16,12 @@
 int	main(void)
 {
 	Span span(20);
-	std::list<int> numbers = {10, 10, 30, 40, 50};
+	std::list<int> numbers;
+	numbers.push_front(10);
+	numbers.push_front(10);
+	numbers.push_front(30);
+	numbers.push_front(40);
+	numbers.push_front(50);
 
 
 	try {
