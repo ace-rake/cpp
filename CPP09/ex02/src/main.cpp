@@ -1,4 +1,6 @@
+#include <cctype>
 #include <cstdlib>
+#include <ctime>
 #include <deque>
 #include <iostream>
 #include <list>
@@ -81,48 +83,70 @@ void	sort(container & original)
 
 }
 
-template <typename container>
-void PmergeMe(int argc, char **argv)
+bool numCheck(int argc, char **argv)
 {
-	container c;
-	for (int i = 0; i < argc; ++i)
+	std::list<int> seen;
+	for (int i = 1; i < argc; i++)
 	{
-		c.push_back(atoi(argv[i]));
+		std::string str(argv[i]);
+		for (std::string::iterator it = str.begin(); it != str.end(); it++)
+		{
+			if (it == str.begin() && *it == '+')
+				continue ;
+			if (!isdigit(*it))
+				return true;
+		}
+		
+		int why_cant_i_use_set = atoi(argv[i]);
+		for (std::list<int>::iterator fuck_cpp_98 = seen.begin();fuck_cpp_98 != seen.end();fuck_cpp_98++)
+			if (*fuck_cpp_98 == why_cant_i_use_set)
+				return true;
+		seen.push_back(why_cant_i_use_set);
 	}
-	sort(c);
+	return false;
 }
 
 int	main(int argc, char **argv)
 {
+	if (argc == 1 || numCheck(argc, argv))
+	{
+		std::cout << "Invalid Args\n";
+		return 1;
+	}
+	size_t list_size = argc - 1;
+
+	//create deque
+	std::deque<int> deque;
+	for (int i = 1; i < argc; ++i)
+		deque.push_back(atoi(argv[i]));
+
+	//create list
 	std::list<int> list;
 	for (int i = 1; i < argc; ++i)
 		list.push_back(atoi(argv[i]));
 
+	// Sort the containers
+	clock_t start_list = clock();
+	sort(list);
+	clock_t end_list = clock();
+	clock_t start_deque = clock();
+	sort(deque);
+	clock_t end_deque = clock();
+	double elapsed_list = static_cast<double>(end_list - start_list) / CLOCKS_PER_SEC * 1000000;
+	double elapsed_deque = static_cast<double>(end_deque - start_deque) / CLOCKS_PER_SEC * 1000000;
+
+
+	std::cout << "Before:\t";
+	for (int i = 1; i < argc; i++)
+		std::cout << argv[i] << " ";
+	std::cout << std::endl;
 
 	std::list<int>::iterator it = list.begin();
+	std::cout << "After:\t";
 	while (it != list.end())
 		std::cout << *(it++) << " ";
 	std::cout << std::endl;
 
-	sort(list);
-
-	it = list.begin();
-	while (it != list.end())
-		std::cout << *(it++) << " ";
-	std::cout << std::endl;
-
+	std::cout << "Elapsed time deque for size [" << list_size << "] : " << elapsed_deque << "µ" << std::endl;
+	std::cout << "Elapsed time list  for size [" << list_size << "] : " << elapsed_list << "µ" << std::endl;
 }
-	// Create int container(s) using string inputs
-	// How to keep track of time
-	// sort the comtainers ig
-	// 	Ford johnson algorithm
-	//		-split list in 2
-	//			-recursively until all lists are size 1
-	//		for each list, put them back in the prev list in order
-	//			-recursively until ony 1 (sorted) list remains
-	//
-	//TODO: add some error checking to input
-	//	- is number
-	//	- at least one element
-	//	- no dups
-	//TODO: add times
