@@ -9,7 +9,7 @@ project(MyProject)
 FILE(GLOB_RECURSE MySources src/*.cpp)
 
 # Add linker flags globally
-add_link_options(--std=c++98 -Wall -Werror -Wextra -g)
+add_link_options(--std=c++98 -Wall -Werror -Wextra -g -O0)
 
 # Add compiler flags globally
 add_compile_options(--std=c++98 -Wall -Wextra -Werror -g -O0)

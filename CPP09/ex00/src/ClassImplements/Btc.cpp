@@ -34,7 +34,7 @@ Btc& Btc::operator = (const Btc& other)
 	std::cout << "Btc:\tcopying object (assignment)\n";
 	if (this != &other)
 	{
-		/* this->_=other._ */
+		_data = other._data;
 	}
 	return (*this);
 }
@@ -64,7 +64,6 @@ void	Btc::printData(Date date)const
 /* { */
 /* 	//First check if exact match can be found */
 /* 	//if not get surrounding matches and interpolate */
-/* 	//TODO check for beginning or end */
 /* 	std::cout << "Looking for " << date << std::endl; */
 /* 	if (_data.find(date) != _data.end()) */
 /* 		return _data.find(date)->second; */

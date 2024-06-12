@@ -91,6 +91,7 @@ int	calculate_str(std::string str)
 
 void	calculate_input()
 {
+	std::cout << "Welcome to your reverse polish calculator, please give your input" << std::endl;
 	std::stack<float> stack;
 
 	std::string str;

@@ -1,18 +1,18 @@
 #include "ClassHeaders/Btc.hpp"
 #include <exception>
 #include <fstream>
-#include <regex>
+/* #include <regex> */
 #include <unistd.h>
 
-bool check_line(const std::string& str) {
-    // Define the regex pattern
-    std::regex pattern(R"(^\d{4}-\d{2}-\d{2} \| .+$)");
-
-    // Use regex_match to check if the string matches the pattern
-    if (std::regex_match(str, pattern))
-	    return (true);
-    throw std::exception();
-}
+/* bool check_line(const std::string& str) { */
+/*     // Define the regex pattern */
+/*     std::regex pattern(R"(^\d{4}-\d{2}-\d{2} \| .+$)"); */
+/*  */
+/*     // Use regex_match to check if the string matches the pattern */
+/*     if (std::regex_match(str, pattern)) */
+/* 	    return (true); */
+/*     throw std::exception(); */
+/* } */
 int	main(int argc, char **argv)
 {
 	if (argc != 2)
@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 			try
 			{
 				std::cout << "checking :" <<line<<std::endl;
-				check_line(line);
+				/* check_line(line); */
 				std::cout << coin.retrieve(line) << std::endl;
 			}
 			catch (std::exception &e)

@@ -9,13 +9,13 @@ project(MyProject)
 FILE(GLOB_RECURSE MySources src/*.cpp)
 
 # Add linker flags globally
-add_link_options(--std=c++98 -Wall -Werror -Wextra)
+add_link_options(--std=c++98 -Wall -Werror -Wextra -g)
 
 # Add compiler flags globally
-add_compile_options(--std=c++98 -Wall -Wextra -Werror)
+add_compile_options(--std=c++98 -Wall -Wextra -Werror -g)
 
-# Add compiler flags for debug
-add_compile_options(--std=c++11 -Wall -Wextra -Werror -g -O0)
+# Add compiler flags for regex
+# add_compile_options(--std=c++11)
 
 # Add an executable target
 add_executable(btc ${MySources})
